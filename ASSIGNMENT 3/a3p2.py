@@ -37,7 +37,18 @@ Author: <Your name here>
 """
 
 def random_generator(a, b, c, m, r0, r1, n):
-    pass
+    sequence = []
+    for i in range(n):
+        value = (a*r1 + b*r0 + c) % m
+        sequence.append(value)
+        r0, r1 = r1, value
+    return sequence
+
+
+
+
+    
+
 
 
 
@@ -46,7 +57,7 @@ def test():
     assert random_generator(22695477, 77557187, 259336153, 9672485827, 42, 51, 8) == [4674207334, 3722211255, 3589660660, 1628254817, 8758883504, 7165043537, 4950370481, 2261710858]
     assert random_generator(2**31-5, 743, 549, 1559861749, 97, 101, 8) == [75137452, 935657016, 1474108152, 1106636826, 405962062, 778970349, 1377654917, 1174493038]
     assert random_generator(1128889, 1023, 511, 222334565193649, 65535, 329, 8) == [438447297, 50289200612813, 17962583104439, 47361932650166, 159841610077391, 19587857129781, 111993173627854, 7567964632208]
-
+    
 from sys import flags
 
 if __name__ == "__main__" and not flags.interactive:

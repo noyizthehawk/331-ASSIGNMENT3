@@ -4,13 +4,13 @@ Note:
 2. Any other change in the template might result in a potential mark deduction.
 
 Problem 1 
-  Value of a: ___ (Number mod 71)
-  Value of b: ___ (Number mod 71)
+  Value of a: __47_ (Number mod 71)
+  Value of b: __52_ (Number mod 71)
 
 Problem 3 
-  Value of a: ___ (Number mod 467)
-  Value of b: ___ (Number mod 467)
-  Value of c: ___ (Number mod 467)
-  Value of R_0: ___ (Number mod 467)
-  Value of R_1: ___ (Number mod 467)
-  Value of R_7: ___ (Number mod 467)
+  Value of a: _37__ (Number mod 467)
+  Value of b: _59__ (Number mod 467)
+  Value of c: __325_ (Number mod 467)
+  Value of R_0: __430_ (Number mod 467)
+  Value of R_1: __86_ (Number mod 467)
+  Value of R_7: _262__ (Number mod 467)

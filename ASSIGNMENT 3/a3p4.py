@@ -35,17 +35,42 @@ CMPUT 331 Assignment 3 Student Solution
 January 2025
 Author: <Your name here>
 """
+def mod_inv(x, m):
+    return pow(x, -1, m)
 
 def crack_rng(m, sequence):
     r2, r3, r4, r5, r6 = tuple(sequence)
-    pass
+    X1, Y1, Z1 = (r4 - r3) % m, (r3 - r2) % m, (r5 - r4) % m
+    X2, Y2, Z2 = (r5 - r4) % m, (r4 - r3) % m, (r6 - r5) % m
+
+    # Compute determinant
+    det = (X1 * Y2 - X2 * Y1) % m  
+    if det == 0:
+        raise ValueError("No unique solution exists")
+    
+    # Compute modular inverse of determinant
+    det_inv = mod_inv(det, m)
+    
+    # Solve for 'a' and 'b' using modular arithmetic
+    a = ((Z1 * Y2 - Z2 * Y1) * det_inv) % m
+    b = ((X1 * Z2 - X2 * Z1) * det_inv) % m
+    
+    # Solve for 'c'
+    c = (r4 - a * r3 - b * r2) % m
+    
+    
+    return [a, b, c]
+  
+    
+
+    
 
 def test():
     assert crack_rng(17, [14, 13, 16, 3, 13]) == [3, 5, 9]
     assert crack_rng(9672485827, [4674207334, 3722211255, 3589660660, 1628254817, 8758883504]) == [22695477, 77557187, 259336153]
     assert crack_rng(101, [0, 91, 84, 16, 7]) == [29, 37, 71]
     assert crack_rng(222334565193649,[438447297,50289200612813,17962583104439,47361932650166,159841610077391]) == [1128889, 1023, 511]
-    
+    crack_rng(467, [28, 137, 41, 118, 105])
 from sys import flags
 
 if __name__ == "__main__" and not flags.interactive:
